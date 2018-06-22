@@ -8,7 +8,7 @@
     using System.Windows.Forms;
     using Microsoft.Win32;
 
-    public class PreferencesManager 
+    public class PreferencesManager
     {
         private const string MULTISCREEN_PREF = "MultiScreenMode";
         private const string URL_PREF = "Url";
@@ -121,7 +121,7 @@
         // specifically, if the user has a single-screen view of what is actually stored as multiple screens underneath,
         // and they order a later-screen item before an earlier screen item, those items will still wind up in screen-
         // order whe reading back for single-screen view.
-        // options: 1) retro-fit more ordering stuff onto screen URLS, 2) make the URLS list just one list again, and 
+        // options: 1) retro-fit more ordering stuff onto screen URLS, 2) make the URLS list just one list again, and
         // add another list that specifies which screen each URL is for. (i.e. rewrite URL list handling completely).
         // 2. is actually the better option.
         private List<List<string>> urlsByScreen;
@@ -195,7 +195,7 @@
                         // not found - use default
                         relativeScreenNumForThisUrl = defaultRelativeScreenNumForNewUrls;
                     }
-                    
+
                     relativeScreenUrlsList[relativeScreenNumForThisUrl].Add(url);
                 }
             }
@@ -244,7 +244,7 @@
             reg.Close();
         }
 
-        private void LoadPreferences()  
+        private void LoadPreferences()
         {
             MultiScreenMode = (MultiScreenModeItem)Enum.Parse(typeof(MultiScreenModeItem), (string)reg.GetValue(MULTISCREEN_PREF, MULTISCREEN_PREF_DEFAULT));
             CloseOnActivity = bool.Parse((string)reg.GetValue(CLOSE_ON_ACTIVITY_PREF, CLOSE_ON_ACTIVITY_PREF_DEFAULT));

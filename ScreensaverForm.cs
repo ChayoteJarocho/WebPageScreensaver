@@ -91,6 +91,7 @@ namespace pl.polidea.lab.Web_Page_Screensaver
             else
             {
                 webBrowser.Visible = false;
+                closeButton.Visible = false;
             }
         }
 
