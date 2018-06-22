@@ -114,6 +114,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ScreensaverForm.resx">
+      <DependentUpon>ScreensaverForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

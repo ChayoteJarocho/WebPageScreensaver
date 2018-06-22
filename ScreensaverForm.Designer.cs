@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScreensaverForm));
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -36,43 +37,51 @@
             // 
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser.Margin = new System.Windows.Forms.Padding(4);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.webBrowser.Margin = new System.Windows.Forms.Padding(6);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(40, 39);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.ScriptErrorsSuppressed = true;
-            this.webBrowser.Size = new System.Drawing.Size(379, 322);
+            this.webBrowser.Size = new System.Drawing.Size(568, 503);
             this.webBrowser.TabIndex = 0;
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // closeButton
             // 
             this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(323, 15);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.closeButton.BackColor = System.Drawing.Color.Red;
+            this.closeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("closeButton.BackgroundImage")));
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(436, 1);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(0);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(40, 28);
+            this.closeButton.Size = new System.Drawing.Size(98, 59);
             this.closeButton.TabIndex = 1;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Visible = false;
+            this.closeButton.Text = "✕";
+            this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // ScreensaverForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(379, 322);
+            this.ClientSize = new System.Drawing.Size(568, 503);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.webBrowser);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Gray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ScreensaverForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form1";
+            this.Text = "Web ScreenSaver";
             this.Load += new System.EventHandler(this.ScreensaverForm_Load);
             this.ResumeLayout(false);
 

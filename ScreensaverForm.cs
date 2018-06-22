@@ -152,6 +152,11 @@ namespace pl.polidea.lab.Web_Page_Screensaver
         {
             Close();
         }
+
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 
     public class GlobalUserEventHandler : IMessageFilter
