@@ -24,27 +24,43 @@ namespace WebPageScreensaver
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true); // Prevents seeing tiny unexpected fonts
 
-            // Argument verification - More than 1 argument, or passing
-            // the wrong argument, will silently exit the program
+            // Argument verification:
+            // - The arguments /C, /P and /S are required by Windows Control Panel.
+            // - More than 1 argument, or passing the wrong argument, will exit the program
 
-            // No arguments is interpreted as "/C"
+            // Passing no arguments is interpreted as using "/C"
             if (args.Length == 0)
             {
-                Application.Run(new PreferencesForm());
+                ShowPreferences();
             }
             else if(args.Length == 1)
             {
                 switch (args[0].ToUpperInvariant())
                 {
                     case "/C": // Configure
-                        Application.Run(new PreferencesForm());
+                        ShowPreferences();
                         break;
                     case "/P": // Preview
                     case "/S": // Show
                         ShowScreenSaver();
                         break;
+                    default:
+                        Console.WriteLine($"Unrecognized argument: {args[0]}");
+                        break;
                 }
             }
+            else
+            {
+                Console.WriteLine("Unexpected number of arguments.");
+            }
+        }
+
+        /// <summary>
+        /// Show the screensaver preferences window.
+        /// </summary>
+        private static void ShowPreferences()
+        {
+            Application.Run(new PreferencesForm());
         }
 
         /// <summary>
