@@ -13,9 +13,7 @@ namespace WebPageScreensaver
         [STAThread]
         static void Main(string[] args)
         {
-            ProcessModule? mainModule = Process.GetCurrentProcess().MainModule;
-
-            if (mainModule == null)
+            if (Process.GetCurrentProcess().MainModule is not ProcessModule)
             {
                 throw new NullReferenceException("Current process main module is null.");
             }
@@ -29,29 +27,31 @@ namespace WebPageScreensaver
             // - More than 1 argument, or passing the wrong argument, will exit the program
 
             // Passing no arguments is interpreted as using "/C"
-            if (args.Length == 0)
+            switch (args.Length)
             {
-                ShowPreferences();
-            }
-            else if(args.Length == 1)
-            {
-                switch (args[0].ToUpperInvariant())
-                {
-                    case "/C": // Configure
-                        ShowPreferences();
-                        break;
-                    case "/P": // Preview
-                    case "/S": // Show
-                        ShowScreenSaver();
-                        break;
-                    default:
-                        Console.WriteLine($"Unrecognized argument: {args[0]}");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Unexpected number of arguments.");
+                case 0:
+                    ShowPreferences();
+                    break;
+
+                case 1:
+                    switch (args[0].ToUpperInvariant())
+                    {
+                        case "/C": // Configure
+                            ShowPreferences();
+                            break;
+                        case "/P": // Preview
+                        case "/S": // Show
+                            ShowScreenSaver();
+                            break;
+                        default:
+                            Console.WriteLine($"Unrecognized argument: {args[0]}");
+                            break;
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Unexpected number of arguments.");
+                    break;
             }
         }
 
@@ -70,9 +70,9 @@ namespace WebPageScreensaver
         {
             var forms = new List<Form>();
 
-            foreach (KeyValuePair<int, ScreenInformation> kvp in Preferences.Screens)
+            foreach ((int _, ScreenInformation info) in Preferences.Screens)
             {
-                var form = new ScreensaverForm(kvp.Value);
+                var form = new ScreensaverForm(info);
                 forms.Add(form);
             }
 
