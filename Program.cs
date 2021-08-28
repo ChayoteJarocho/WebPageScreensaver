@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace WebPageScreensaver
@@ -13,7 +11,7 @@ namespace WebPageScreensaver
         [STAThread]
         static void Main(string[] args)
         {
-            if (Process.GetCurrentProcess().MainModule is not ProcessModule)
+            if (Process.GetCurrentProcess().MainModule is null)
             {
                 throw new NullReferenceException("Current process main module is null.");
             }

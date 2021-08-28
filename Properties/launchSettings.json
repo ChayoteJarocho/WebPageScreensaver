@@ -1,8 +1,12 @@
 {
   "profiles": {
-    "WebPageScreensaver": {
+    "Configure Preferences": {
       "commandName": "Project",
-      "commandLineArgs": ""
+      "commandLineArgs": "/C"
+    },
+    "Preview Screensavers": {
+      "commandName": "Project",
+      "commandLineArgs": "/P"
     }
   }
 }

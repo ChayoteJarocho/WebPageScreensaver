@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace WebPageScreensaver
 {
@@ -56,7 +54,7 @@ namespace WebPageScreensaver
             {
                 if (_shuffle)
                 {
-                    Random random = new Random();
+                    Random random = new();
                     int n = _urls.Count;
                     while (n > 1)
                     {

@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <StartupObject>WebPageScreensaver.Program</StartupObject>
     <RootNamespace>WebPageScreensaver</RootNamespace>
     <AssemblyName>WebPageScreensaver</AssemblyName>
-    <Version>2.0.2-Alpha</Version>
-    <PublishTrimmed>true</PublishTrimmed>
+    <Version>2.0.3-Alpha</Version>
+    <!--<PublishTrimmed>true</PublishTrimmed>--> <!-- WinForms does not support trimming anymore  -->
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
     <Platforms>x64;x86</Platforms>
   </PropertyGroup>
