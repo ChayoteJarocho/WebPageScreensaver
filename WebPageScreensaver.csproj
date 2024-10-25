@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <StartupObject>WebPageScreensaver.Program</StartupObject>
@@ -12,6 +12,8 @@
     <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
     <Platforms>x64;x86</Platforms>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
   </PropertyGroup>
 
   <ItemGroup>
